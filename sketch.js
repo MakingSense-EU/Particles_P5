@@ -1,5 +1,5 @@
 var particles = [];
-var limit = 20;
+var limit = 10;
 var imgs = [];
 
 var gif;
@@ -7,39 +7,16 @@ var gif;
 function preload() {
   
   var path = 'assets/';
-  // //circles
-  // imgs.push( loadImage(path+ 'cB.png'));
-  // imgs.push( loadImage(path+ 'cG.png'));
-  // imgs.push( loadImage(path+ 'cO.png'));
-  
-  // //diamonds
-  // imgs.push( loadImage(path+ 'dB.png'));
-  // imgs.push( loadImage(path+ 'dG.png'));
-  // imgs.push( loadImage(path+ 'dO.png'));
-  
-  // //moon -- not squares
-  // // imgs.push( loadImage(path+ 'mB.png'));
-  // // imgs.push( loadImage(path+ 'mG.png'));
-  // // imgs.push( loadImage(path+ 'mO.png'));
-  
-  // //squiggle
-  // // imgs.push( loadImage(path+ 'sB.png'));
-  // // imgs.push( loadImage(path+ 'sG.png'));
-  // // imgs.push( loadImage(path+ 'sO.png'));
-  
-  // //triangle
-  // imgs.push( loadImage(path+ 'tB.png'));
-  // imgs.push( loadImage(path+ 'tG.png'));
-  // imgs.push( loadImage(path+ 'tO.png'));
-  
-  // //cross
-  // imgs.push( loadImage(path+ 'xB.png'));
-  // imgs.push( loadImage(path+ 'xG.png'));
-  // imgs.push( loadImage(path+ 'xO.png'));
-  
   imgs.push( loadGif(path + '1.gif'));
-  
-  
+  imgs.push( loadGif(path + '2.gif'));
+  imgs.push( loadGif(path + '3.gif'));
+  imgs.push( loadGif(path + '4.gif'));
+  imgs.push( loadGif(path + '5.gif'));
+  imgs.push( loadGif(path + '6.gif'));
+  imgs.push( loadGif(path + '7.gif'));
+  imgs.push( loadGif(path + '8.gif'));
+  imgs.push( loadGif(path + '9.gif'));
+  imgs.push( loadGif(path + '10.gif'));
   
 }
 
@@ -66,8 +43,6 @@ function setup() {
 }
 
 function draw() {
-  // image(imgs[1], 0, 0, 15, 15);
-//background('#ffffff');
   background('#39424C');
   
   for (var i = 0; i < limit; i++){
@@ -75,5 +50,6 @@ function draw() {
     particles[i].update();
     particles[i].display();
   }
+ 
   
 }

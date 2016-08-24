@@ -2,15 +2,42 @@
 function Particle(x,y, imgLoc){
   this.pos = createVector(x, y);
   this.vel = createVector(random(-2,2),random(-2,2));
-  this.acc = createVector(0,0);
+  this.acc = createVector(0,-3);
   this.size = 20;
-  this.maxSpeed = .9;
+  this.maxSpeed = .4;
   this.maxForce = 1;
   this.theta = 0.0;
   this.img = imgLoc;
+  this.gifShow = false;
+  this.paused = true; // set to true
+  this.frozen = true;
+  this.itvl = floor(random(400,400));
 
+  
+  this.spawn = function(){
+    if( (imgs[this.img].frame([]) > 100) || (imgs[this.img].frame([]) < 5) ){
+      if (this.gifShow == true) {
+        //print('finished showing');
+        this.paused = true;
+      }
+      this.gifShow = false; // hidden
+    } else {
+      this.gifShow = true; // showing
+    }
+    
+    
+    if (this.frozen) {
+      if( (frameCount % this.itvl) == 0){
+        //print('thaw');
+        imgs[this.img].play();
+        this.frozen = false;
+      }
+    }
+  };
+  
   this.update = function(){
     //deadFIX
+    this.spawn();
     this.vel.add(this.acc);
     this.vel.limit(this.maxSpeed);
     this.pos.add(this.vel);
@@ -25,13 +52,17 @@ function Particle(x,y, imgLoc){
     push();
     translate(this.pos.x, this.pos.y);
     rotate(this.theta);
-    // beginShape();
-    // vertex(0, -r*1);
-    // vertex(-r, r*2);
-    // vertex(0, -r * 1);
-    // vertex(r, r*2);
-    // endShape(CLOSE);
-    image(imgs[this.img], this.size/-2, this.size/-2, this.size, this.size);
+    
+    if (this.paused) { //paused
+      //print('paused');
+      //print('frozen');
+      this.paused = false;
+      this.frozen = true;
+      imgs[this.img].pause();
+    }
+    if (imgs[this.img].loaded()){
+      image(imgs[this.img], this.size/-2, this.size/-2, this.size, this.size);
+    }
     pop();
   }
   
