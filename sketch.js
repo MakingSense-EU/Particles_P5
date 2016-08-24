@@ -2,37 +2,44 @@ var particles = [];
 var limit = 20;
 var imgs = [];
 
+var gif;
+
 function preload() {
   
+  var path = 'assets/';
   // //circles
-  imgs.push( loadImage('assets/cB.png'));
-  imgs.push( loadImage('assets/cG.png'));
-  imgs.push( loadImage('assets/cO.png'));
+  // imgs.push( loadImage(path+ 'cB.png'));
+  // imgs.push( loadImage(path+ 'cG.png'));
+  // imgs.push( loadImage(path+ 'cO.png'));
   
-  //diamonds
-  imgs.push( loadImage('assets/dB.png'));
-  imgs.push( loadImage('assets/dG.png'));
-  imgs.push( loadImage('assets/dO.png'));
+  // //diamonds
+  // imgs.push( loadImage(path+ 'dB.png'));
+  // imgs.push( loadImage(path+ 'dG.png'));
+  // imgs.push( loadImage(path+ 'dO.png'));
   
-  //moon -- not squares
-  // imgs.push( loadImage('assets/mB.png'));
-  // imgs.push( loadImage('assets/mG.png'));
-  // imgs.push( loadImage('assets/mO.png'));
+  // //moon -- not squares
+  // // imgs.push( loadImage(path+ 'mB.png'));
+  // // imgs.push( loadImage(path+ 'mG.png'));
+  // // imgs.push( loadImage(path+ 'mO.png'));
   
-  //squiggle
-  // imgs.push( loadImage('assets/sB.png'));
-  // imgs.push( loadImage('assets/sG.png'));
-  // imgs.push( loadImage('assets/sO.png'));
+  // //squiggle
+  // // imgs.push( loadImage(path+ 'sB.png'));
+  // // imgs.push( loadImage(path+ 'sG.png'));
+  // // imgs.push( loadImage(path+ 'sO.png'));
   
-  //triangle
-  imgs.push( loadImage('assets/tB.png'));
-  imgs.push( loadImage('assets/tG.png'));
-  imgs.push( loadImage('assets/tO.png'));
+  // //triangle
+  // imgs.push( loadImage(path+ 'tB.png'));
+  // imgs.push( loadImage(path+ 'tG.png'));
+  // imgs.push( loadImage(path+ 'tO.png'));
   
-  //cross
-  imgs.push( loadImage('assets/xB.png'));
-  imgs.push( loadImage('assets/xG.png'));
-  imgs.push( loadImage('assets/xO.png'));
+  // //cross
+  // imgs.push( loadImage(path+ 'xB.png'));
+  // imgs.push( loadImage(path+ 'xG.png'));
+  // imgs.push( loadImage(path+ 'xO.png'));
+  
+  imgs.push( loadGif(path + '1.gif'));
+  
+  
   
 }
 
@@ -60,7 +67,7 @@ function setup() {
 
 function draw() {
   // image(imgs[1], 0, 0, 15, 15);
-
+//background('#ffffff');
   background('#39424C');
   
   for (var i = 0; i < limit; i++){
