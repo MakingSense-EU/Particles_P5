@@ -2,16 +2,16 @@
 function Particle(x,y, imgLoc){
   this.pos = createVector(x, y);
   this.vel = createVector(random(-2,2),random(-2,2));
-  this.acc = createVector(0,-3);
+  this.acc = createVector(0,-5);
   this.size = 20;
-  this.maxSpeed = .4;
+  this.maxSpeed = .3;
   this.maxForce = 1;
   this.theta = 0.0;
   this.img = imgLoc;
   this.gifShow = false;
   this.paused = true; // set to true
   this.frozen = true;
-  this.itvl = floor(random(400,400));
+  this.itvl = floor(random(500,500));
 
   
   this.spawn = function(){
