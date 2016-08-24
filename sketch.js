@@ -1,5 +1,5 @@
 var particles = [];
-var limit = 10;
+var limit = 25;
 var imgs = [];
 
 var gif;
@@ -7,16 +7,10 @@ var gif;
 function preload() {
   
   var path = 'assets/';
-  imgs.push( loadGif(path + '1.gif'));
-  imgs.push( loadGif(path + '2.gif'));
-  imgs.push( loadGif(path + '3.gif'));
-  imgs.push( loadGif(path + '4.gif'));
-  imgs.push( loadGif(path + '5.gif'));
-  imgs.push( loadGif(path + '6.gif'));
-  imgs.push( loadGif(path + '7.gif'));
-  imgs.push( loadGif(path + '8.gif'));
-  imgs.push( loadGif(path + '9.gif'));
-  imgs.push( loadGif(path + '10.gif'));
+  //img 10 looks weird find way to handle
+  for (var i = 0; i < limit; i++){
+    imgs.push( loadGif(path + floor(random(1,10)) + '.gif'));
+  }
   
 }
 
@@ -37,7 +31,8 @@ function setup() {
   centerCanvas();
   for (var i = 0; i < limit; i++){
     var imgLoc = (floor(random(1,imgs.length)) - 1);
-    particles.push(new Particle(random(50,width-50), random(50, height-50), imgLoc));
+    var img = imgs[i];
+    particles.push(new Particle(random(50,width-50), random(50, height-50), img));
   }
   
 }

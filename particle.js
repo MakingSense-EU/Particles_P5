@@ -2,7 +2,7 @@
 function Particle(x,y, imgLoc){
   this.pos = createVector(x, y);
   this.vel = createVector(random(-2,2),random(-2,2));
-  this.acc = createVector(0,-5);
+  this.acc = createVector(0,-8);
   this.size = 20;
   this.maxSpeed = .3;
   this.maxForce = 1;
@@ -11,11 +11,11 @@ function Particle(x,y, imgLoc){
   this.gifShow = false;
   this.paused = true; // set to true
   this.frozen = true;
-  this.itvl = floor(random(500,500));
+  this.itvl = floor(random(200,1000));
 
   
   this.spawn = function(){
-    if( (imgs[this.img].frame([]) > 100) || (imgs[this.img].frame([]) < 5) ){
+    if( (this.img.frame([]) > 100) || (this.img.frame([]) < 5) ){
       if (this.gifShow == true) {
         //print('finished showing');
         this.paused = true;
@@ -29,7 +29,7 @@ function Particle(x,y, imgLoc){
     if (this.frozen) {
       if( (frameCount % this.itvl) == 0){
         //print('thaw');
-        imgs[this.img].play();
+        this.img.play();
         this.frozen = false;
       }
     }
@@ -58,10 +58,10 @@ function Particle(x,y, imgLoc){
       //print('frozen');
       this.paused = false;
       this.frozen = true;
-      imgs[this.img].pause();
+      this.img.pause();
     }
-    if (imgs[this.img].loaded()){
-      image(imgs[this.img], this.size/-2, this.size/-2, this.size, this.size);
+    if (this.img.loaded()){
+      image(this.img, this.size/-2, this.size/-2, this.size, this.size);
     }
     pop();
   }
