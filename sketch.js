@@ -1,5 +1,5 @@
 var particles = [];
-var limit = 25;
+var limit = 11;
 var imgs = [];
 
 var gif;
